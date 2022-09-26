@@ -30,16 +30,26 @@ class NewsViewModel @Inject constructor(
 
     fun getNews(page: String = "1"){
         viewModelScope.launch {
-            isLoading.postValue(true)
-            isLoadingScroll.value = true
-            currentNews = page.toInt()
-            val result = getNewsUseCase(page= page)
-            Log.d("Response", result.toString())
-            if(result != null){
-                newsModel.postValue(result)
+            try {
+                isLoading.postValue(true)
+                isLoadingScroll.value = true
+                currentNews = page.toInt()
+                val result = getNewsUseCase(page= page)
+                Log.d("Response", result.toString())
+                if(result?.status.equals("ok")){
+                    newsModel.postValue(result)
+                    isLoading.postValue(false)
+                    isLoadingScroll.value = false
+                } else {
+                    isLoading.postValue(false)
+                    isLoadingScroll.value = false
+                }
+            } catch (ex: Exception){
+                Log.d("error", "Error connection")
                 isLoading.postValue(false)
                 isLoadingScroll.value = false
             }
+
         }
     }
 

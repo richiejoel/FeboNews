@@ -8,9 +8,7 @@ import retrofit2.http.Query
 
 interface NewsAPIClient {
 
-    //@GET("top-headlines?country=us&apiKey=5ce08b8488c340488a52b921114878df&page=1&pageSize=10")
-
-    @GET("top-headlines?")
-    suspend fun getAllNews(@Query("country") country: String = "us", @Query("apiKey") apiKey: String = Constants.API_KEY, @Query("page") page: String,  @Query("pageSize") pageSize: String = "4" ): Response<NewsModel>?
+    @GET("everything?")
+    suspend fun getAllNews(@Query("q") q: String = "usa", @Query("apiKey") apiKey: String = Constants.API_KEY, @Query("page") page: String,  @Query("pageSize") pageSize: String = "5" ): Response<NewsModel>?
 
 }

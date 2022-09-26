@@ -1,7 +1,9 @@
 package com.richiejoel.febonews.utils
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.widget.Toast
 import com.richiejoel.febonews.ui.view.activities.MainActivity
 import java.text.SimpleDateFormat
 import java.util.*
@@ -21,5 +23,14 @@ class UtilsView {
             val formatOut = SimpleDateFormat("dd-MM-yyyy")
             return formatOut.format(date).toString()
         }
+
+        fun showToastError(context: Context){
+            Toast.makeText(
+                context,
+                "Connection error",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
     }
 }

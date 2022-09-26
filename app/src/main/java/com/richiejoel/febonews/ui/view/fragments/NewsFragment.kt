@@ -17,6 +17,7 @@ import com.richiejoel.febonews.data.model.Articles
 import com.richiejoel.febonews.databinding.FragmentNewsBinding
 import com.richiejoel.febonews.ui.view.adapters.NewsAdapter
 import com.richiejoel.febonews.ui.viewModel.NewsViewModel
+import com.richiejoel.febonews.utils.UtilsView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -143,6 +144,7 @@ class NewsFragment : Fragment() {
             ).show()
         }
     }
+
 
 
 }

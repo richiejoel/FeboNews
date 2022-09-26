@@ -1,5 +1,6 @@
 package com.richiejoel.febonews.di
 
+import com.richiejoel.febonews.data.model.Constants
 import com.richiejoel.febonews.data.network.NewsAPIClient
 import dagger.Module
 import dagger.Provides
@@ -17,7 +18,7 @@ object NetworkModule {
     @Provides
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://newsapi.org/v2/")
+            .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
