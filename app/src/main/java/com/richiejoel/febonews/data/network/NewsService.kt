@@ -10,9 +10,9 @@ import javax.inject.Inject
 class NewsService @Inject constructor(
     private val api:NewsAPIClient
 ) {
-    suspend fun getNews(): NewsModel? {
+    suspend fun getNews(page: String): NewsModel? {
         return withContext(Dispatchers.IO) {
-            val response: Response<NewsModel>? = api.getAllNews()
+            val response: Response<NewsModel>? = api.getAllNews(page = page)
             Log.d("Response", response.toString())
             response?.body()
         }

@@ -10,8 +10,8 @@ class NewsRepository @Inject constructor(
     private val service: NewsService,
     private val newsProvider: NewsProvider
 ){
-    suspend fun getAllNews(): NewsModel?{
-        val response = service.getNews()
+    suspend fun getAllNews(page: String): NewsModel?{
+        val response = service.getNews(page=page)
         Log.d("Response", response.toString())
         newsProvider.news = response
         return response

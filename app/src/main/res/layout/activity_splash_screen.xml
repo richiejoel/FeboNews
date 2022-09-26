@@ -28,7 +28,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/lytHorizontalSplash"
             app:layout_constraintTop_toTopOf="parent"
-            app:lottie_rawRes="@raw/news_animation" />
+            app:lottie_rawRes="@raw/news" />
 
         <LinearLayout
             android:id="@+id/lytHorizontalSplash"

@@ -9,7 +9,7 @@ import com.richiejoel.febonews.data.model.Articles
 import com.richiejoel.febonews.databinding.NewsBinding
 import com.richiejoel.febonews.utils.UtilsView
 
-class NewsAdapter(private var newsModel: List<Articles>, private val context: Context, var listener: OnItemClickListener):
+class NewsAdapter(private var newsModel: ArrayList<Articles>, private val context: Context, var listener: OnItemClickListener):
     RecyclerView.Adapter<NewsAdapter.NewsHolder>()  {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsHolder {
@@ -33,7 +33,7 @@ class NewsAdapter(private var newsModel: List<Articles>, private val context: Co
     }
 
     fun setData(data: List<Articles>){
-        newsModel = data
+        newsModel.addAll(data)
         notifyDataSetChanged()
     }
 

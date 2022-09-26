@@ -8,7 +8,7 @@ class GetNewsUseCase @Inject constructor(
     private val repository: NewsRepository
 ) {
 
-    suspend operator fun invoke(): NewsModel? {
-        return repository.getAllNews()
+    suspend operator fun invoke(page: String): NewsModel? {
+        return repository.getAllNews(page = page)
     }
 }

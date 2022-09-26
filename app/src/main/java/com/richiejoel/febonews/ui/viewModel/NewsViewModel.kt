@@ -20,15 +20,25 @@ class NewsViewModel @Inject constructor(
     val isLoading = MutableLiveData<Boolean>()
     var newsSelected = MutableLiveData<Articles?>()
 
+    private val _isLoadingScroll = MutableLiveData<Boolean>()
+    val isLoadingScroll = _isLoadingScroll
+    private val _isAllVideoLoaded = MutableLiveData<Boolean>()
+    val isAllVideoLoaded = _isAllVideoLoaded
 
-    fun getNews(){
+    var currentNews: Int = 0
+
+
+    fun getNews(page: String = "1"){
         viewModelScope.launch {
             isLoading.postValue(true)
-            val result = getNewsUseCase()
+            isLoadingScroll.value = true
+            currentNews = page.toInt()
+            val result = getNewsUseCase(page= page)
             Log.d("Response", result.toString())
             if(result != null){
                 newsModel.postValue(result)
                 isLoading.postValue(false)
+                isLoadingScroll.value = false
             }
         }
     }
